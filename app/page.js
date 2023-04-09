@@ -1,91 +1,38 @@
+'use client'
+import data from './json/data.json'
+import { useState } from 'react'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import jeremy from './images/image-jeremy.png'
+import Card from './Card'
 
-const inter = Inter({ subsets: ['latin'] })
+export default function HomePage () {
+    const [view, setView] = useState("week");
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    return (
+        <main className='flex justify-center items-center bg-screenColor lg:py-0 py-4 h-12/12 lg:h-screen'>
+            <section className='grid lg:grid-cols-4 lg:grid-rows-2 gap-8 text-white w-11/12 lg:w-fit'>
+                <article className='row-span-2 relative'>
+                    <section className='flex lg:flex-col bg-jeremyBg p-6 pb-16 rounded-xl w-full lg:w-64 mt-0 absolute'>
+                        <div className='border-4 w-[90px] mb-12 rounded-[50%]'>
+                            <Image src={jeremy} alt='jeremy' width={90} />
+                        </div>
+                        <div>
+                            <p>Report for:</p>
+                            <h1 className='text-5xl font-light'>Jeremy <br/> Robson</h1>
+                        </div>
+                    </section>
+                    <section className='flex lg:justify-start justify-between lg:flex-col gap-4 bg-darkBlue p-6 pt-32 mt-32 lg:mt-64 lg:w-64 rounded-xl'>
+                        <a href='#' onClick={() => setView("day")} className={view == "day" ? "text-white" : "text-desaturatedBlue"}>Daily</a>
+                        <a href='#' onClick={() => setView("week")} className={view == "week" ? "text-white" : "text-desaturatedBlue"}>Weekly</a>
+                        <a href='#' onClick={() => setView("month")} className={view == "month" ? "text-white" : "text-desaturatedBlue"}>Monthly</a>
+                    </section>
+                </article>
+                {data.map((item, index) => {
+                    return(
+                        <Card key={index} view={view} item={item} index={index} />
+                    )
+                })}
+            </section>
+        </main>
+    )
 }
