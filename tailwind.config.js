@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./app/page.js",
     "./app/Card.js",
+    "./app/objectStyle.js"
   ],
   theme: {
     extend: {
@@ -12,8 +13,6 @@ module.exports = {
         "jeremyBg": "#5847eb",
         "desaturatedBlue": "#6f76c8",
         "paleBlue": "#bdc1ff",
-        // sections colors
-
         "work": "#ff8c66",
         "play": "	#56c2e6",
         "study": "#ff5c7c",
