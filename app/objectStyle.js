@@ -8,27 +8,27 @@ import iconSelfcare from './images/icon-self-care.svg'
 
 export const objectStyle = {
     0: {
-    color: "work",
+    color: "#ff8c66",
     img: iconWork
     },
     1:{
-    color: "play",
+    color: "#56c2e6",
     img: iconPlay
     },
     2:{
-    color: "study",
+    color: "#ff5c7c",
     img: iconStudy
     },
     3: {
-    color: "exercise",
+    color: "#4acf81",
     img: iconExercise
     },
     4:{
-    color: "social",
+    color: "#7536d3",
     img: iconSocial
     },
     5: {
-    color: "selfCare",
+    color: "#f1c65b",
     img: iconSelfcare
     },
 }

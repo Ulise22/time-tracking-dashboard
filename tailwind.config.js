@@ -16,9 +16,9 @@ module.exports = {
         "work": "#ff8c66",
         "play": "	#56c2e6",
         "study": "#ff5c7c",
-        "exercise": "#4acf81",
-        "social": "	#7536d3",
-        "selfCare": "#f1c65b",
+        "exercise":"#4acf81",
+        "social": "#7536d3",
+        "selfcare": "#f1c65b"
       }
     },
   },
