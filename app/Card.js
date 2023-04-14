@@ -5,7 +5,7 @@ export default function Card ({item, index, view}) {
 
     return(
         <article className='relative'>
-            <section className={`flex z-0 justify-end bg-[${objectStyle[index].color}] rounded-t-xl `}>
+            <section style={{background: objectStyle[index].color}} className={`flex z-0 justify-end rounded-t-xl `}>
                 <Image className='z-0' src={objectStyle[index].img} alt='#' height={80} />
             </section>
             <section className='grid z-20 gap-4 bg-darkBlue hover:bg-desaturatedBlue -mt-6 p-7 rounded-xl h-46 cursor-pointer lg:absolute w-full lg:w-64'>
